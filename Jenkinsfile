@@ -19,6 +19,13 @@ pipeline {
         sh 'terraform apply -auto-approve ResourceGroup/'
       }
     }
-  } 
 
+    stage('Env') {
+      steps {
+        sh 'terraform init TerraformLAB/'
+        sh 'terraform plan TerraformLAB/'
+        sh 'terraform apply -auto-approve TerraformLAB/'
+      }
+    }
+  } 
 }
