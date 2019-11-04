@@ -16,7 +16,7 @@ pipeline {
         checkout scm
         sh 'terraform init ResourceGroup/'
         sh 'terraform plan ResourceGroup/'
-        sh 'terraform apply -input=false ResourceGroup/'
+        sh 'terraform apply -auto-approve ResourceGroup/'
       }
     }
   } 
