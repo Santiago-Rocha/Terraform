@@ -18,10 +18,9 @@ pipeline {
         sh 'mkdir Jenkins'
         sh 'cp RG-2124471.tf Jenkins/'
         sh 'cd Jenkins/'
-        sh 'ls'
         sh 'terraform init'
-        sh 'terraform plan'
-        sh 'terraform apply'
+        sh 'terraform plan -out RG-2124471.tf'
+        sh 'terraform apply RG-2124471.tf'
       }
     }
   } 
