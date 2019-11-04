@@ -14,7 +14,13 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
+        sh 'rm -r Jenkins'
         sh 'mkdir Jenkins'
+        sh 'cp RG-2124471.tf Jenkins/'
+        sh 'cd Jenkins/'
+        sh 'terraform init'
+        sh 'terraform plan'
+        sh 'terraform apply'
       }
     }
   } 
