@@ -3,7 +3,7 @@ pipeline {
   agent any
 
   environment {
-    ARM_ENVIRONMENT=public
+    ARM_ENVIRONMENT='public'
   }
 
   stages {
