@@ -14,11 +14,9 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-        sh 'cd ResourceGroup'
-	sh 'ls'
-        sh 'terraform init'
-        sh 'terraform plan -out RG-2124471.tf'
-        sh 'terraform apply RG-2124471.tf'
+        sh 'terraform init ResourceGroup/'
+        sh 'terraform plan ResourceGroup/'
+        sh 'terraform apply ResourceGroup/'
       }
     }
   } 
