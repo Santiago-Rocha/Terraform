@@ -14,17 +14,20 @@ pipeline {
     stage('Checkout') {
       steps {
         checkout scm
-        sh 'terraform init ResourceGroup/'
-        sh 'terraform plan ResourceGroup/'
-        sh 'terraform apply -auto-approve ResourceGroup/'
+        dir("ResourceGroup"){
+          sh 'terraform init'
+          sh 'terraform plan'
+          sh 'terraform apply -auto-approve'
       }
     }
 
     stage('Env') {
       steps {
-        sh 'terraform init TerraformLAB/'
-        sh 'terraform plan TerraformLAB/'
-        sh 'terraform apply -auto-approve TerraformLAB/'
+        dir("TerraformLAB"){
+          sh 'terraform init'
+          sh 'terraform plan'
+          sh 'terraform apply -auto-approve'
+        }
       }
     }
   } 
